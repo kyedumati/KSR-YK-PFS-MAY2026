@@ -14,6 +14,7 @@ print(marks)
 ssc_marks = bytearray([65,55,76,84])
 print(ssc_marks[1])
 print(ssc_marks[-2])
+ssc_marks[1] = 95
 ssc_marks[1] = 95 # mofiying value at index 1
 print(ssc_marks[1])
 for mark in ssc_marks:
