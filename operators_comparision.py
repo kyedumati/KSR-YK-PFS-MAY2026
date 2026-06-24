@@ -19,3 +19,9 @@ print(a!=b) # a and b are not equal? True
 cricketer = "virat kohli"
 favorite_cricketer = "yuvraj"
 print("is virat kohli is your favourite cricketer", cricketer == favorite_cricketer) # is the cricketer who is playing is your favourite cricketer
+
+applicant_age = 20
+applicant_state = "AP"
+print(applicant_age>=18)
+print(applicant_state == "Telangana")
+print(applicant_age >= 18 and applicant_state == "Telangana")
