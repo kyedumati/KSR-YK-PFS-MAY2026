@@ -43,3 +43,10 @@
 # print(list(l))
 # print(type(l))
 
+
+a = input("Enter a number:")
+b = input("Enter another number:")
+if a.isdigit() and b.isdigit():
+    print(int(a)+int(b))
+else:
+    print("please enter value numberical values")

@@ -21,7 +21,7 @@ candiate_state = "AP"
 name = "Kasi Yedumati"
 eligibility_check_statement = ''
 # eligibility_check_statement = " is Eligble for Vote" if candidate_age>=18 and candiate_state == "Telangana" else " is not Eligble for Vote"
-if candidate_age>=18 and candiate_state == "Telangana":
+if candidate_age>=18 and candiate_state.strip().upper() == "TELANGANA":
     eligibility_check_statement = "is Eligble for Vote"
 else:
     eligibility_check_statement = "is Not Eligible"
