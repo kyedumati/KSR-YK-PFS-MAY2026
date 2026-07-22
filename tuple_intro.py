@@ -62,6 +62,9 @@ for product in products:
 if not is_product_found:
     print("Product not found")
 
-
-
+t = (1,2,34,12,3)
+reversed_tuple = t[::-1]
+print(reversed_tuple)
+reversed_tuple_func = tuple(reversed(t))
+print(reversed_tuple_func)
 

@@ -22,8 +22,8 @@ cart[0] = "chocolate" # to update or replace existing items
 print(cart)
 cart.remove("biryani")
 print(cart)
-if "dark fantasy" in cart:
-    cart.remove("dark fantasy")
+# if "dark fantasy" in cart:
+cart.remove("dark fantasy")
 
 popped_value = cart.pop()
 print(cart)
