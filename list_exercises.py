@@ -6,22 +6,27 @@
 # num % 2 == 0 this confirms even
 # if it is even number count has to increase  : even_count+=1
 # finally print even_count
-numbers = [10,21, 4, 45, 66, 93,11, 13, 15, 16, 19]
-even_counter = 0
-odd_counter = 0
-for item in numbers:
-    if item % 2 == 0:
-        even_counter += 1
-    else:
-        odd_counter += 1
-print("Even numbers:", even_counter)
-print("Odd numbers:", odd_counter)
+def even_oddd(numbers):
+    even_counter = 0
+    odd_counter = 0
+    for item in numbers:
+        if item % 2 == 0:
+            even_counter += 1
+        else:
+            odd_counter += 1
+    print("Even numbers:", even_counter)
+    print("Odd numbers:", odd_counter)
 
+numbers = [10,21, 4, 45, 66, 93,11, 13, 15, 16, 19]
+even_oddd(numbers)
 # 2. Reverse a list
 # Ex: Input: [100,200,300, 400]
 # output: [400,300,200,100]
+def reverse_list(original_list):
+    return original_list[::-1]
+
 l = [100,200,300, 400]
-print(l[::-1])
+print(reverse_list(l))
 
 # 3. swap two element at given indices
 #Input: [23, 65, 19,90]

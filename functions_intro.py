@@ -40,5 +40,57 @@ even_odd(20)
 even_odd(5)
 even_odd(9)
 
+def subtraction(a,b):
+    return a-b
+print(subtraction(10,20))
+# print(subtraction(10)) # TypeError: subtraction() missing 1 required positional argument: 'b'
+print(subtraction(20,10))
+
+
+print(subtraction(b=10,a=20))
+# print(subtraction(b=10)) # TypeError: subtraction() missing 1 required positional argument: 'a'
+
+
+def wish(name, message):
+    print("Hello", name, message)
+
+wish("Nani", "Good morning") # positional arguments
+wish(name="Nani", message="Good morning")
+wish(message="good evening", name="Nani")
+wish("good evening", "Nani")
+
+wish("Nani", message="Good morning")
+
+# wish(name="Nani", "Good morning") #SyntaxError: positional argument follows keyword argument
+# def wish_message(name="guest", message="good morning"): # default arguments
+#     print("Hello", name, message)
+
+def wish_message(message, name="guest"): # default arguments
+    print("Hello", name, message)
+wish_message("Nani", "Good morning")
+wish_message("good evening")
+
+
+def sum_values(*n):
+    print(type(n))
+    total = 0
+    for n1 in n:
+        total += n1
+    return total
+
+print(sum_values(10,20))
+print(sum_values(20,30,40,50,60))
+print(sum_values(20,30,40,50,60,780, 900))
+print(sum_values())
+
+def display_student_info(**kwargs):
+    print(type(kwargs))
+    for k,v in kwargs.items():
+        print(k,v)
+
+display_student_info(rno=1234, name="nani", marks=70, subject="java")
+
+display_student_info(rno=1234, name="Dhoni", marks=80)
+
 
 
