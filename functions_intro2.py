@@ -109,7 +109,7 @@ for n in range(10):
 
 
 #lambda expression
-# write a program to create a lambda expression to find sware of the given number
+# write a program to create a lambda expression to find square of the given number
 # def square(n):
 #     return n*n
 #
@@ -141,6 +141,60 @@ for i in even_list:
     print(i, end=" ")
 
 
+# map() : WAP to double or square each item from the list
+# without lambda
+l = [1,2,3,4,5]
+
+# def square_number(n): # functionality
+#     return n**2
+
+
+# squares_list = map(square_number, l)
+squares_list = map(lambda x:x**2, l)
+print(list(squares_list))
+
+
+# write a funciton to sum all the items in the list
+from functools import reduce
+price_list = [120.12, 299.00, 499.00, 1299]
+
+final_bill = reduce(lambda x,y:x+y, price_list) # Step1: 120.12+299.00 = [420.12, 499.00, 1299] # step2: 420.12+499.00 : [919.12, 1299] # step3: 2218.12
+print(final_bill)
+
+
+# function aliasing
+def wish(name):
+    print("Good morning", name)
+    print("Good afternoon", name)
+
+greeting = wish
+print(id(wish))
+print(id(greeting))
+
+greeting("kasi")
+wish("nani")
+
+
+def outer():
+    print("outer functions started")
+    def inner():
+        print("inside inner functions")
+    print("outer function statement2")
+    inner() # calling inner function
+
+outer()
+# inner() # NameError: name 'inner' is not defined. Did you mean: 'iter'?
+
+def outer2():
+    print("outer functions started")
+    def inner2():
+        print("inside inner functions")
+    print("outer function statement2")
+    return inner2
+
+returned_iner = outer2()
+print(returned_iner)
+returned_iner()
 
 
 
