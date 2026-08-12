@@ -43,9 +43,10 @@
 
 # self a keyword
 class Student:
+    collect_name = "Mallareddy Engineering College" # class variable or static variable : shared variable
     # initialise properties
     def __init__(self, roll, name, marks, email): # this is a constructor to initialise properties of the object
-        self.roll = roll
+        self.roll = roll # instance variable
         self.name = name
         self.marks = marks
         self.email = email
@@ -101,7 +102,7 @@ print(s2.roll)
 class Car:
 
     def __init__(self, model, year, engine_capacity): # initializing car object
-        self.model = model
+        self.model = model # instance variable
         self.year = year
         self.engine_capacity = engine_capacity
 
