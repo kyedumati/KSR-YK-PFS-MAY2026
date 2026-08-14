@@ -19,6 +19,10 @@ class Employee:
         print(Employee.company_name)
         self.email = email # intialise instance variable at instance method
 
+    @classmethod
+    def get_company_name(cls): # current class
+        return cls.company_name # Employee.company_name
+
 emp1 = Employee(1, "Kasi", 123000)
 print(emp1.salary)
 print(emp1.empid)
@@ -33,6 +37,9 @@ print(emp2.salary)
 print(emp2.company_name)
 print(Employee.company_name)
 # print(Employee.email) #
+
+print(Employee.get_company_name()) # class methods can be called using class name
+
 
 
 
