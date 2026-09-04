@@ -57,3 +57,4 @@ saving_account.deposit(2000)
 saving_account.apply_interest()
 print("Current balance: ", saving_account.get_balance())
 
+# "/Users/kasiy/Desktop/KSR_Trainings/WORKSPACE/KSR-YK-PFS-MAY2026/student_info.csv"

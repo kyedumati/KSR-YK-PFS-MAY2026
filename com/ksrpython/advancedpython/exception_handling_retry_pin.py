@@ -27,4 +27,9 @@ for i in range(3):
     except Exception as e:
         print(e)
         break
+    except: # this can handle any exception in the python world, even exception cant handle
+        print("someoone cancelled the program in between due to techinical failure")
+
+
+
 
