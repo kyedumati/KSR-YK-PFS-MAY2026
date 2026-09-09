@@ -6,11 +6,11 @@
 # 1. View All Expenses
 # 2. Add Expense
 # 3. Total Expenses   --> read the csv files, get price from that and create a temp total variable and sum it
-# 4. Category-wise Report
-# 5. Highest Expense
-# 6. Lowest Expense
-# 7. Search by Category
-# 8. Payment Mode Report
+# 4. Category-wise Report  --> output should
+# 5. Highest Expense  --> which category you are spening more amount and whats the amount: Ex: groceries, 1200
+# 6. Lowest Expense  --> entertainment: 350
+# 7. Search by Category --> Input: food: output: should list all the items in that category only
+# 8. Payment Mode Report -->
 # 9. Exit
 
 from csv import *

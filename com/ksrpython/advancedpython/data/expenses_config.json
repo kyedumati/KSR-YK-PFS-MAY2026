@@ -1,0 +1,6 @@
+{
+  "app_name": "ExpenseTracker",
+  "currency": "INR",
+  "max_daily_limit": 5000,
+  "categories": ["food", "travel", "rent", "entertainment"]
+}

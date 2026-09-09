@@ -1,0 +1,6 @@
+{
+  "payment_gateway_name": "Razorpay",
+  "payment_gateway_email": "test@gmail.com",
+  "payment_gateway_url": "https://razorpay.com",
+  "payment_gateway_client_id": "123456"
+}
