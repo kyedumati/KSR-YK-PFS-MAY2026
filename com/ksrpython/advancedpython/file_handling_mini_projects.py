@@ -1,0 +1,105 @@
+# # Create a program to take all the expenses(category, item, price, date) as an input and then save those expendes to csv file
+# # Write methods also to calculate final expenses catogory wise
+# #ex: category : food, healthcare, entertainment
+# # IteM: biryani, op and medicine bill for fever, movies/games
+
+# 1. View All Expenses
+# 2. Add Expense
+# 3. Total Expenses   --> read the csv files, get price from that and create a temp total variable and sum it
+# 4. Category-wise Report
+# 5. Highest Expense
+# 6. Lowest Expense
+# 7. Search by Category
+# 8. Payment Mode Report
+# 9. Exit
+
+from csv import *
+import csv
+import os
+
+
+class Expense: # this is to hold all the properties of the expenses
+    def __init__(self, date, category, description, amount, payment_mode):
+        self.date = date
+        self.category = category
+        self.description = description
+        self.amount = amount
+        self.payment_mode = payment_mode
+
+    def __str__(self):
+        return f"Date: {self.date} \n Caregory:{self.category} \n Description:{self.description} \n Amount:{self.amount} \n PaymentMode:{self.payment_mode}"
+
+
+class ExpenseManager:
+    def __init__(self, filename):
+        self.filename = filename
+        self.expenses = [] # empty expenses
+        self.create_file()
+
+    def create_file(self):
+        if not os.path.exists(self.filename):
+            with open(self.filename, "w") as file:
+                writer_obj = DictWriter(file, fieldnames=["date", "category", "description", "amount", "payment_mode"])
+                writer_obj.writeheader()
+                # writer = csv.writer(file)
+                # writer.writ(["date", "category", "description", "amount", "payment_mode"])
+
+    def view_expenses(self):
+        self.expenses = []
+        with open(self.filename, "r") as file:
+            reader = DictReader(file)
+            for row in reader:
+                expense = Expense(row.get("date"), row.get("category"), row.get("description"), row.get("amount"),row.get("payment_mode"))
+                self.expenses.append(expense)
+        print("ALL EXPENSES VIEW")
+        for item in self.expenses:
+            print("=====================")
+            print(item)
+            print("=====================")
+
+    def add_expense(self, expense:Expense):
+        self.expenses.append(expense)
+
+        # write to the file
+        with open(self.filename, "a") as file:
+            writer = csv.writer(file)
+            writer.writerow([
+                expense.date,
+                expense.category,
+                expense.description,
+                expense.amount,
+                expense.payment_mode
+            ])
+        print("Successfully added expense")
+
+
+if __name__ == "__main__":
+    manager = ExpenseManager("expenses.csv")
+    while True:
+        print("=========MONTHLY EXPENSES TRACKER============")
+        print("1. View All Expenses")
+        print("2. Add expense")
+        print("3. Total Expenses")
+
+        choice = int(input("Enter your choice: "))
+        if choice == 1:
+            manager.view_expenses()
+        elif choice == 2:
+            date = input("Enter your date: ")
+            category = input("Enter your category: ")
+            description = input("Enter your description: ")
+            amount = input("Enter your amount: ")
+            payment_mode = input("Enter your payment mode: ")
+            expense = Expense(date, category, description, amount, payment_mode)
+            manager.add_expense(expense)
+
+
+
+
+
+
+
+
+
+
+
