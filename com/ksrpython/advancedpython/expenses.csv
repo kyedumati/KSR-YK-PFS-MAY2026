@@ -1,3 +1,8 @@
 date,category,description,amount,payment_mode
 2026-09-08,entertainment,went for irumudi movie,350,credit card
 2026-09-09,groceries,"vegetables, panner and chicken",1200,cash
+12345,food,shawarma,500,upi
+2026-09-10,entertainment,war movie,450,upi
+2026-09-10,entertainment,bahubali,350,upi
+2026-09-10,healthcare,fever,1200,cc
+2026-08-02,food,KFC,1700,upi

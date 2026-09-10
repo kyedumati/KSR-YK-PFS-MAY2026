@@ -17,6 +17,9 @@ from csv import *
 import csv
 import os
 
+import logging
+
+logging.basicConfig(filename='expenses_logfile.log', filemode="a", level=logging.DEBUG, format="%(asctime)s %(levelname)s %(message)s")
 
 class Expense: # this is to hold all the properties of the expenses
     def __init__(self, date, category, description, amount, payment_mode):
@@ -38,6 +41,7 @@ class ExpenseManager:
 
     def create_file(self):
         if not os.path.exists(self.filename):
+            logging.debug("File doesn't exist, im creating new file") # DEBUG, application flow
             with open(self.filename, "w") as file:
                 writer_obj = DictWriter(file, fieldnames=["date", "category", "description", "amount", "payment_mode"])
                 writer_obj.writeheader()
@@ -45,19 +49,29 @@ class ExpenseManager:
                 # writer.writ(["date", "category", "description", "amount", "payment_mode"])
 
     def view_expenses(self):
+        logging.info("VIEW EXPENSES VIEW")
         self.expenses = []
-        with open(self.filename, "r") as file:
-            reader = DictReader(file)
-            for row in reader:
-                expense = Expense(row.get("date"), row.get("category"), row.get("description"), row.get("amount"),row.get("payment_mode"))
-                self.expenses.append(expense)
-        print("ALL EXPENSES VIEW")
-        for item in self.expenses:
-            print("=====================")
-            print(item)
-            print("=====================")
+        try:
+            with open(self.filename, "r") as file:
+                reader = DictReader(file)
+                for row in reader:
+                    expense = Expense(row.get("date"), row.get("category"), row.get("description"), row.get("amount"),row.get("payment_mode"))
+                    self.expenses.append(expense)
+        except FileNotFoundError as e:
+            logging.error("File doesn't exist, im creating new file", e)
+        else:
+            print("ALL EXPENSES VIEW")
+            for item in self.expenses:
+                print("=====================")
+                print(item)
+                print("=====================")
 
     def add_expense(self, expense:Expense):
+        # message = "Adding expense {0}, {1}, {2}".format(expense.date, expense.category, expense.description)
+        # message = f"Adding expense category={category}, description={description}, amount={amount}, payment_mode={payment_mode}"
+        message = "Adding expense category={category}, description={description}, amount={amount}, payment_mode={payment_mode}".format(category=expense.category, description=expense.description, amount=expense.amount, payment_mode=expense.payment_mode)
+
+        logging.info(message)
         self.expenses.append(expense)
 
         # write to the file
@@ -70,7 +84,7 @@ class ExpenseManager:
                 expense.amount,
                 expense.payment_mode
             ])
-        print("Successfully added expense")
+        logging.info("Successfully added expense") # info
 
 
 if __name__ == "__main__":
