@@ -1,17 +1,14 @@
 import os
 
 def read_expenses_data(file_loc):
-    if os.path.exists(file_loc):
-        with open(file_loc, "r") as f:
-            # data = f.readlines()
-            print(f.read(60))
-            # for line in data:
-            #     print(line)
-    else:
-        print("File that you are trying to access is not exist")
+
+    with open(file_loc, "r") as f:
+        data = f.readlines()
+        for line in data:
+            print(line)
 
 if __name__ == '__main__':
-    file_location = "/Users/kasiyedumati/Desktop/expense.txt" # foldername/filename.txt # full qualified path# full path
+    file_location = "/Users/kasiy/Desktop/expense.txt" # foldername/filename.txt # full qualified path# full path
     read_expenses_data(file_location)
 
 
