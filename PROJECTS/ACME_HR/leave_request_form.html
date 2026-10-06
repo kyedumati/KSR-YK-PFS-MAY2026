@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leave Request</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<!--
+1. Forms is used to take the input : what are the inputs that you need
+2. They also need a submit button
+3. Action should be peformed
+
+
+-->
+<h2>Leave Request Form</h2>
+<form action="/leaveform" method="POST">
+    <p style="color:green;">
+    <label>Employee Id:</label>
+    <input type="text" value="1234" name="employee_id" required readonly disabled>
+    </p>
+    <p>
+    <label style="color:green;">EmailId: </label>
+    <input type="email" placeholder="test@gmail.com" name="email_id" required>
+    </p>
+
+
+<!--    <label>Enter Password:</label>
+    <input type="password">-->
+    <p>
+    <label style="color:red;">Enter Start date:</label><input type="date" name="start_date" required>
+
+    <label style="color:red;">Enter End date:</label><input type="date" name="end_date" required>
+    <p>
+   <!-- <p>
+       <input type="tel">
+    </p>
+    <p>
+     <label>Days</label>
+     <input type="number" min="1" max="10" >
+    </p>-->
+    <!--
+    <p>
+    <input type="datetime-local">
+    <input type="month">
+    <input type="time">
+    </p>
+     -->
+    <p>
+    <label>Leave Type:</label>
+    <select name="leave_type">
+        <option value="PL">PL</option>
+        <option value="parental leave">Parental Leave</option>
+        <option value="sick leave" selected>Sick Leave</option>
+        <option value="Earned leave" >Earned Leave</option>
+    </select>
+    </p>
+    <p>
+        <label>Gender:</label>
+        <select name="gender">
+            <option value="M">Male</option>
+            <option value="F" selected>Female</option>
+            <option value="Other">Others</option>
+        </select>
+    </p>
+    <p>
+       <fieldset>
+            <input type="radio" name="day_type" value="full">
+            <label>Full Day</label>
+            <input type="radio" name="day_type" value="half">
+            <label>Half Day</label>
+        </fieldset>
+    </p>
+    <p>
+        <input type="checkbox">
+        <label>Email my manager</label>
+    </p>
+    <p>
+        <label>Medical Certificate:</label>
+        <input type="file" accept="application/pdf">
+    </p>
+    <p>
+        <label>Reason:</label>
+        <textarea rows="6"></textarea>
+    </p>
+    <button type="submit">Submit Leave</button>
+    <button type="reset">Reset</button>
+</form>
+</body>
+</html>

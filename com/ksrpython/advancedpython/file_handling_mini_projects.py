@@ -17,9 +17,14 @@ from csv import *
 import csv
 import os
 
-import logging
+from logging_config import get_logger
+# import logging
 
-logging.basicConfig(filename='expenses_logfile.log', filemode="a", level=logging.DEBUG, format="%(asctime)s %(levelname)s %(message)s")
+logger = get_logger(__name__)
+
+# logging.basicConfig(filename='expenses_logfile.log', filemode="a", level=logging.DEBUG, format="%(asctime)s %(levelname)s %(message)s")
+
+
 
 class Expense: # this is to hold all the properties of the expenses
     def __init__(self, date, category, description, amount, payment_mode):
@@ -41,7 +46,7 @@ class ExpenseManager:
 
     def create_file(self):
         if not os.path.exists(self.filename):
-            logging.debug("File doesn't exist, im creating new file") # DEBUG, application flow
+            logger.debug("File doesn't exist, im creating new file") # DEBUG, application flow
             with open(self.filename, "w") as file:
                 writer_obj = DictWriter(file, fieldnames=["date", "category", "description", "amount", "payment_mode"])
                 writer_obj.writeheader()
@@ -49,7 +54,7 @@ class ExpenseManager:
                 # writer.writ(["date", "category", "description", "amount", "payment_mode"])
 
     def view_expenses(self):
-        logging.info("VIEW EXPENSES VIEW")
+        logger.info("VIEW EXPENSES VIEW")
         self.expenses = []
         try:
             with open(self.filename, "r") as file:
@@ -58,7 +63,7 @@ class ExpenseManager:
                     expense = Expense(row.get("date"), row.get("category"), row.get("description"), row.get("amount"),row.get("payment_mode"))
                     self.expenses.append(expense)
         except FileNotFoundError as e:
-            logging.error("File doesn't exist, im creating new file", e)
+            logger.error("File doesn't exist, im creating new file", e)
         else:
             print("ALL EXPENSES VIEW")
             for item in self.expenses:
@@ -71,7 +76,7 @@ class ExpenseManager:
         # message = f"Adding expense category={category}, description={description}, amount={amount}, payment_mode={payment_mode}"
         message = "Adding expense category={category}, description={description}, amount={amount}, payment_mode={payment_mode}".format(category=expense.category, description=expense.description, amount=expense.amount, payment_mode=expense.payment_mode)
 
-        logging.info(message)
+        logger.info(message)
         self.expenses.append(expense)
 
         # write to the file
@@ -84,7 +89,7 @@ class ExpenseManager:
                 expense.amount,
                 expense.payment_mode
             ])
-        logging.info("Successfully added expense") # info
+        logger.info("Successfully added expense") # info
 
 
 if __name__ == "__main__":
