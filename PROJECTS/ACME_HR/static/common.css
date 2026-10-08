@@ -1,0 +1,21 @@
+.main {
+    border: 2px solid #36505c;
+    padding: 16px;
+    margin: 25px auto;
+    max-width: 500px;
+}
+
+nav ul {
+    list-style: none; /* no bullet points*/
+    background-color: #164770;
+}
+
+nav li {
+     display: inline-block;
+}
+
+nav a {
+   display: block;
+   padding: 12px 16px;
+   color: white;
+}
