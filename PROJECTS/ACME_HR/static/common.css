@@ -1,8 +1,25 @@
 .main {
     border: 2px solid #36505c;
-    padding: 16px;
+    padding: 24px;
     margin: 25px auto;
-    max-width: 500px;
+    max-width: 650px;
+    background-color: white;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+h1 {
+  font-size: 30px;
+  color: #0f416c;
+  margin:0;
+}
+
+h2 {
+   margin: 24px 0 8px;
+   font-size: 20px;
+   color: #0f416c;
 }
 
 nav ul {
@@ -18,4 +35,56 @@ nav a {
    display: block;
    padding: 12px 16px;
    color: white;
+}
+
+dd {
+    margin: 5px 0px;
+}
+
+dt {
+    font-weight: bold;
+    color: #0f416c;
+    font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  color: #0f416c;
+  font-size: 14px;
+}
+
+.directory-main {
+   display: flex;
+   max-width: 850px;
+   flex-wrap: wrap;
+   padding-left: 200px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 2px solid #d6dade;
+  border-radius: 14px;
+  width: 220px;
+  padding: 16px;
+  margin: 5px;
+}
+
+article img {
+    border-radius: 60%;
+    width: 75px;
+    height: 75px;
+}
+
+article p {
+    color: #49a0e4;
+    margin: 0;
+    font-size: 13px;
+}
+
+article h2{
+    color: #0f416c;
+    margin: 0;
+    font-size: 14px;
 }
