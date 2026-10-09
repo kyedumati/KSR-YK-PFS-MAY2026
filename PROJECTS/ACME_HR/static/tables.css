@@ -1,0 +1,37 @@
+/*
+table {
+  border: 2px solid;
+}*/
+
+h2 {
+  margin: 20px;
+}
+
+th, td {
+   border: 1px solid #dce8f3;
+   padding: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse !important;
+}
+
+caption {
+    text-align: left;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+
+thead th {
+    border-bottom: 2px solid #1a568b;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #d7e9f8;
+}
+
+tfoot tr{
+ border-top: 2px solid #1a568b;
+}
