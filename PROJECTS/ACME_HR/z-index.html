@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         .box {
+           position: absolute;
+           width: 200px;
+           padding: 12px;
+           border: 2px solid red;
+         }
+
+        .one {
+          top: 16px;
+          left: 16px;
+          background-color: red;
+          z-index: 3;
+        }
+
+        .two {
+           top: 40px;
+           left: 100px;
+           background-color: green;
+           z-index: 2;
+        }
+
+        .three{
+           top: 64px;
+           left: 140px;
+           background-color: yellow;
+           z-index: 40;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box one"><p>first div box open</p></div>
+<div class="box two"><p>second div box opened 2nd</p></div>
+<div class="box three"><p>third div box open</p></div>
+</body>
+</html>

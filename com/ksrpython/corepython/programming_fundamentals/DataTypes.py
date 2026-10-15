@@ -1,3 +1,5 @@
+import json
+
 # allowed values are True and False
 a = True
 is_eligible = False # is it not eligible
