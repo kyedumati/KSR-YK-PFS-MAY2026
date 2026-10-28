@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException, Response
 
+from models.employee_model import EmployeeModel, EmployeeUpdateModel, EmployeeResponseModel
+
 # created the fastapi application instance/obj
 fastapi_obj = FastAPI(title="Acme HR Backend API")
 
@@ -60,21 +62,31 @@ def find_employee(employee_id: int):
         if employee["employee_id"] == employee_id:
             return employee
 
-
+'''
 @fastapi_obj.post("/addEmployee", status_code=201)
-def create_employee(employee_dict: dict): #snake case names for methods are highly recommended
+def create_employee(employee_dict: EmployeeModel): #snake case names for methods are highly recommended
     if "employee_id" not in employee_dict or "name" not in employee_dict:
         raise HTTPException(status_code=400, detail= "employee_id and name are required")
 
     employees.append(employee_dict)
     return employee_dict
+'''
 
-@fastapi_obj.put("/updateEmployee/{employee_id}")
-def update_employee(employee_id: int, employee: dict):
+@fastapi_obj.post("/addEmployee", status_code=201)
+def create_employee(employee_dict: EmployeeModel): #snake case names for methods are highly recommended
+    # if "employee_id" not in employee_dict or "name" not in employee_dict:
+    #     raise HTTPException(status_code=400, detail= "employee_id and name are required")
+    print(employee_dict)
+    employees.append(employee_dict)
+    return employee_dict
+
+@fastapi_obj.put("/updateEmployee/{employee_id}", response_model=EmployeeResponseModel)
+def update_employee(employee_id: int, employee: EmployeeUpdateModel):
     current_employee = find_employee(employee_id)
     current_employee.update(employee)
     current_employee["employee_id"] = employee_id
-    return current_employee
+
+    return EmployeeResponseModel(1, "test", "test", "test", "test@gmail.com", "9986332875")
 
 @fastapi_obj.delete("/deleteEmployee/{employee_id}", status_code=204)
 def delete_employee(employee_id: int):
@@ -85,3 +97,5 @@ def delete_employee(employee_id: int):
     return Response(status_code=204)
 
 
+# path means for reading single item from the server
+# query means for searching itesm and you may expect one or more records from the server
