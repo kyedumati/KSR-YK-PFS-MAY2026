@@ -24,3 +24,7 @@ class EmployeeResponseModel(BaseModel):
     department: str
     email: EmailStr
     phone_number: str | None = None
+
+    # {"employee_id": 1, "name": "Ananya", "email": "ananya@gmail.com", "designation": "Software Engineer", "department": "IT"},
+    # {"employee_id": 1, "name": "Ananya", "email": "ananya@gmail.com", "designation": "Software Engineer",
+    #  "department": "IT", "address": "hyder"}
