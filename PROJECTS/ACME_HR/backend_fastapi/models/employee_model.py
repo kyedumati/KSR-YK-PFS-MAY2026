@@ -21,7 +21,7 @@ class EmployeeResponseModel(BaseModel):
     employee_id : int
     name: str
     designation: str
-    department: str
+    deparment: str
     email: EmailStr
     phone_number: str | None = None
 
