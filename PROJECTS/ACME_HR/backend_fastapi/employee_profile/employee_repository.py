@@ -1,25 +1,14 @@
-import mysql.connector
-import os
-
+from connection import get_db_connection
 from models.employee_model import EmployeeModel
+import mysql.connector
 
-password = os.environ.get("db_password")
-username = os.environ.get("db_user")
-
-# add/register a new student
-config = {
-    "host": "localhost", "port": 3306, "user": username, "password": password, "database": "acemehr_db"
-}
-
-def get_db_connection():
-    return mysql.connector.connect(**config)
 
 class EmployeeCreateException(Exception):
     pass
 
 class EmployeeRepository:
-    def __init__(self):
-        self.db_connection = get_db_connection()
+    def __init__(self, conn):
+        self.db_connection = conn
 
     def add_employee_data(self, employee_obj:EmployeeModel):
         try:

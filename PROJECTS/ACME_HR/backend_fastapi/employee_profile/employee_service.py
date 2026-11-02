@@ -10,8 +10,8 @@ class EmployeeNotFoundException(HTTPException):
 
 
 class EmployeeService:
-    def __init__(self):
-        self.employee_repo = EmployeeRepository()
+    def __init__(self, conn):
+        self.employee_repo = EmployeeRepository(conn)
 
     def get_employees(self):
         return self.employee_repo.get_employees_data()
