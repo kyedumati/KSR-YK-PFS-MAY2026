@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, Field, EmailStr # basemodel is a class fastapi will give by default,
 
 
@@ -17,13 +19,18 @@ class EmployeeUpdateModel(BaseModel):
     phone_number: str | None = None
 
 
-class EmployeeResponseModel(BaseModel):
-    employee_id : int
+class DepartmentModel(BaseModel):
+    id: int
     name: str
-    designation: str
-    deparment: str
+
+class EmployeeResponseModel(BaseModel):
+    employee_code : str
+    first_name: str
+    last_name: str
+    department: DepartmentModel
     email: EmailStr
-    phone_number: str | None = None
+    phone: str | None = None
+    hire_date: datetime
 
     # {"employee_id": 1, "name": "Ananya", "email": "ananya@gmail.com", "designation": "Software Engineer", "department": "IT"},
     # {"employee_id": 1, "name": "Ananya", "email": "ananya@gmail.com", "designation": "Software Engineer",

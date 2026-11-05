@@ -21,9 +21,9 @@ class EmployeeService:
         print("inside employee service, trying to add employee")
         self.employee_repo.add_employee_data(employee_obj)
 
-    def get_employee_by_id(self, employee_id: int) -> EmployeeModel:
-        row = self.employee_repo.get_employee_by_id(employee_id)
+    def get_employee_by_id(self, employee_code: str) -> EmployeeModel:
+        row = self.employee_repo.get_employee_by_id(employee_code)
         if row is None:
             raise EmployeeNotFoundException()
             # raise HTTPException(status_code=404, detail="Employee not found")
-        return self.employee_repo.get_employee_by_id(employee_id)
+        return self.employee_repo.get_employee_by_id(employee_code)

@@ -1,25 +1,42 @@
 import os
-import mysql.connector
-from mysql.connector.pooling import PooledMySQLConnection
-from pydantic import NonNegativeInt
+# import mysql.connector
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
+# from mysql.connector.pooling import PooledMySQLConnection
+# from pydantic import NonNegativeInt
 
-password = os.environ.get("db_password")
-username = os.environ.get("db_user")
+# password = os.environ.get("db_password")
+# username = os.environ.get("db_user")
+#
+# # add/register a new student
+# config = {
+#     "host": "localhost", "port": 3306, "user": username, "password": password, "database": "acemehr_db"
+# }
 
-# add/register a new student
-config = {
-    "host": "localhost", "port": 3306, "user": username, "password": password, "database": "acemehr_db"
-}
+#DATABASE_URL = os.environ.get("DATABASE_URL", "mysql+mysqlconnector//root:root@localhost:3306/acemehr_db")
+DATABASE_URL = "mysql+mysqlconnector://root:root@localhost:3306/acmehr_db"
+engine = create_engine(DATABASE_URL,
+                       pool_size=5, # go and get 5 connections at the start of the application, kept open and ready
+                       max_overflow = 10, # extra connections allowed during the overflow burst
+                       pool_timeout=30, # these are the seconds a new request can wait before giving up
+                       pool_recycle=180 # replace connections older than 3minutes
+                       )
+
+session = sessionmaker(bind=engine)
+
+
+class Base(DeclarativeBase): # any python class that is going to inherit this Base is treated ORM model class
+    pass
 
 def get_db_connection():
-    conn = mysql.connector.connect(**config)
+    db = session()
+    # mysql.connector.connect(**config)
     try :
-        yield conn
-    except mysql.connector.Error as error :
-        print("Error while connecting to MySQL", error)
+        yield db
+    except Exception as e :
+        print("Exception while connecting to MySQL", e)
     finally:
-        if conn is not None and conn.is_connected():
-            conn.close()
+        db.close()
 
 
 if __name__ == "__main__":

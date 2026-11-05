@@ -22,6 +22,6 @@ def addEmployee(employee_dict: EmployeeModel, conn = Depends(get_db_connection))
     EmployeeService(conn).add_employee(employee_dict)
     return employee_dict
 
-@router.get("/getEmployee/{employee_id}", response_model=EmployeeResponseModel)
-def getEmployee(employee_id: int, conn = Depends(get_db_connection)):
-    return EmployeeService(conn).get_employee_by_id(employee_id)
+@router.get("/getEmployee/{employee_code}", response_model=EmployeeResponseModel)
+def getEmployee(employee_code: str, conn = Depends(get_db_connection)):
+    return EmployeeService(conn).get_employee_by_id(employee_code)
