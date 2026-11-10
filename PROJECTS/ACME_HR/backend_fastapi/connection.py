@@ -1,7 +1,7 @@
-import os
 # import mysql.connector
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
+
 # from mysql.connector.pooling import PooledMySQLConnection
 # from pydantic import NonNegativeInt
 
@@ -39,12 +39,18 @@ def get_db_connection():
         db.close()
 
 
-if __name__ == "__main__":
-    db = get_db_connection()  # paused; connect() has not run yet
-    conn = next(db)           # runs until yield, then pauses with conn open
-    try:
-        cursor = conn.cursor()
-        cursor.execute("select * from employee")
-        print(cursor.fetchall())
-    finally:
-        next(db, None)        # resumes after yield; the generator's finally closes conn ; we are discarding db
+
+
+
+
+
+# if __name__ == "__main__":
+    # seed_db()
+    # db = get_db_connection()  # paused; connect() has not run yet
+    # conn = next(db)           # runs until yield, then pauses with conn open
+    # try:
+    #     cursor = conn.cursor()
+    #     cursor.execute("select * from employee")
+    #     print(cursor.fetchall())
+    # finally:
+    #     next(db, None)        # resumes after yield; the generator's finally closes conn ; we are discarding db

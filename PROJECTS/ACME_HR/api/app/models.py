@@ -22,7 +22,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.db import Base
+from connection import Base
 
 MYSQL_TABLE = {
     "mysql_engine": "InnoDB",

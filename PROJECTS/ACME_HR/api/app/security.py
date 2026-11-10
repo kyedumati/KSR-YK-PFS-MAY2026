@@ -19,7 +19,6 @@ def validate_password(password: str) -> None:
     if len(password.encode()) > MAX_PASSWORD_BYTES:
         raise HTTPException(status_code=422, detail="Password is too long.")
 
-
 def verify_password(password: str, password_hash: str) -> bool:
     if len(password.encode()) > MAX_PASSWORD_BYTES:
         return False
