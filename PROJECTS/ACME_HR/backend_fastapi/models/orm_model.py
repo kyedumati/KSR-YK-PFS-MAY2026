@@ -6,7 +6,6 @@ from sqlalchemy import String, ForeignKey, select
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from connection import Base, engine, session
-import bcrypt
 
 
 
@@ -62,6 +61,9 @@ class Employee(Base):
         foreign_keys="UserAccount.employee_code",
     )
 
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} {self.email}"
+
 class UserAccount(Base):
     __tablename__ = "user_accounts"
 
@@ -84,8 +86,6 @@ class UserAccount(Base):
 
 PRACTICE_PASSWORD = "Acme@2026"
 
-def hash_password(plain: str) -> str:
-    return bcrypt.hashpw(plain.encode(), bcrypt.gensalt()).decode()
 
 def seed_db():
     Base.metadata.create_all(engine, tables=[UserAccount.__table__])
@@ -93,8 +93,21 @@ def seed_db():
     db_session = session()
     # select * from employees where status!= 'exited'
     # create account for all of them
-    stmt_output = db_session.scalars(select(Employee).where(Employee.status != 'exited'))
-    print(stmt_output)
+    stmt_output = db_session.scalars(select(Employee).where(Employee.status != 'exited')) # select * from employees where status!='exited')
+    try:
+        counter = 0
+        for employee in stmt_output:
+            if employee.account is None:
+                user_acount = UserAccount(employee_code=employee.employee_code, password_hash = hash_password(PRACTICE_PASSWORD))
+                db_session.add(user_acount) #insert query
+                counter += 1
+        db_session.commit() # committing all transactions done before this lines
+        print(counter, " users created")
+            # print(employee)
+    except Exception as e:
+        print(e)
+        db_session.rollback()
+
 
 if __name__ == "__main__":
     seed_db()
