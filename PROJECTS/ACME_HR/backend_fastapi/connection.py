@@ -33,8 +33,9 @@ def get_db_connection():
     # mysql.connector.connect(**config)
     try :
         yield db
-    except Exception as e :
-        print("Exception while connecting to MySQL", e)
+    except Exception as e:
+        print("Exception while connecting to MySQL", e) # we are swallowing the exception
+        raise e
     finally:
         db.close()
 
