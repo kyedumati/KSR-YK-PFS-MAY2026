@@ -1,0 +1,60 @@
+/* Label colour for all the html pages in this site*/
+label {
+   color: red !important;
+   font-size:25px;
+}
+
+h2 {
+   color: blue;
+   font-family: system-ui, sans-serif;
+}
+
+.left_aligned {
+    color: #2196f3;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#course_p {
+    color: #2196f3;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+/** {
+    font-family: cursive;
+    font-size: 16px;
+    color: #333;
+  }*/
+
+.login-page {
+   display: flex;
+   height: 100vh;
+   align-items: center;
+   justify-content: center;
+   /*background-image : url("../jr_ntr_image.avif");*/
+   background-image: url("../images/login_theme.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.login-box {
+   width: 400px;
+   background-color: #e9eaf2;
+    border: 2px solid #74749c;
+   padding: 34px;
+}
+
+.form-row {
+   margin-bottom: 16px;
+}
+
+.field-label {
+    font-size: 18px;
+    color: red;
+}
+
+.submit-btn {
+   color: blue;
+}
