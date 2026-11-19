@@ -38,5 +38,3 @@ studentData = {"name":"kasi yedumait", "rollno": 1234}
 console.log(typeof studentData)
 let student_ids = [123,234,555,666]
 console.log(typeof student_ids)
-
-console.log("kasi".length)
