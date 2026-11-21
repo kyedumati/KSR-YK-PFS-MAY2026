@@ -80,8 +80,8 @@ let enteredPin = 0;
 do {
     attempts++
     console.log("attempt", attempts)
-    // enteredPin = Number(prompt("Enter your ATM pin:"))
-    enteredPin = 123
+    enteredPin = Number(prompt("Enter your ATM pin:"))
+    // enteredPin = 123
     if(enteredPin != correctPin) {
         console.log("Invalid pin entereed")
         continue;

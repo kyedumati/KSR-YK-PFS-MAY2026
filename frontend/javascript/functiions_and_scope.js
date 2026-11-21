@@ -1,6 +1,6 @@
 // someone is tryin to shop in amazon, they are going to generate some bill, and some people may or may not prime account
 // prime vs non prime, totalbill is > 1000
-function deliveryCharges(isPrimeMember, totalBill, expressDelivery) {
+export function deliveryCharges(isPrimeMember, totalBill, expressDelivery) {
     // let deliveryCharges;
 
     if (expressDelivery) {
@@ -13,7 +13,7 @@ function deliveryCharges(isPrimeMember, totalBill, expressDelivery) {
     // return deliveryCharges;
 }
 
-function display() {
+export function display() {
     console.log("dispaly function")
 }
 
@@ -35,7 +35,46 @@ const subTotal = (price, quantity) => price * quantity // simple expresion and i
 console.log(formatRupees(subTotal(429, 3)))
 
 
+// function parameters
+// default arguments
+function priceWithTax(amount, rate= 0.18) { // rate is default param/arguments
+    return Math.round((amount*rate)+amount);
+}
+
+console.log(priceWithTax(1000)) //it will use default 18% rate
+console.log(priceWithTax(1200, 0.05)) // it is going to overrid rate of interest to 5%, in case of books
+
+// missing to pass or pass extra arguments
+function calTotal(price, qty) {
+    return price * qty
+}
+
+console.log(calTotal(499, 2)) // this works as expected
+console.log(calTotal(499, 2, "kasi")) // extra arugments will be ignored
+console.log(calTotal(499)) // missed args going to get undefined 
+
+// variable length arguments/ any number of arguments
+function cartTotal(...prices) { // python *args // it is going to store in an array
+    let sum =0;
+    for(const p of prices) {
+        sum += p;
+    }
+    return sum ;
+}
+
+console.log(calTotal(1299, 499))
+console.log(calTotal(1299, 499, 999))
+
+console.log(calTotal(1299, 499, 999,12345,12345,12345,12345,2345,234))
+
+function sum(a,b) {
+    return [a,b]
+}
 
 
+import products from "./arrays_methods.js"
+console.log(products)
 
 
+export const projectName = "KSR Mart"
+export {deliveryCharges as dc, display as dp}; 
