@@ -52,5 +52,7 @@ x = [10,20,100,2,5]
 x.sort(reverse=True) # descedning order
 print(x)
 
+sorted(cart, reverse=True)
+
 
 

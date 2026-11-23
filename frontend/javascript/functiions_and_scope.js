@@ -72,8 +72,8 @@ function sum(a,b) {
 }
 
 
-import products from "./arrays_methods.js"
-console.log(products)
+// import products from "./arrays_methods.js"
+// console.log(products)
 
 
 export const projectName = "KSR Mart"
