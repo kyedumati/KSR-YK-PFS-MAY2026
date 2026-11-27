@@ -95,3 +95,7 @@ const priceList = [1299, 499, 999, 2599]
 const names = ["kasi", "rithwik", "mohan", "varshith", "chandu"]
 console.log(priceList.sort((a, b) => a - b))
 console.log(names.sort())
+
+for(const price of priceList) {
+    
+}

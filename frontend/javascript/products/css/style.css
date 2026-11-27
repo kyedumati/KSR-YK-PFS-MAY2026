@@ -1,0 +1,17 @@
+.product-card .stock-label {
+    margin-top: 2px;
+    font-size: 12px;
+    color: rgb(70, 64, 64);
+}
+
+
+
+.product-grid {
+    display: flex;
+    width: max-content;
+}
+
+.product-card {
+    border: 2px gray;
+    
+}

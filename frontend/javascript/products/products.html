@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All products | KSR Store</title>
+  <script type="module" src="js/catalog.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html"><img src="images/logo.svg" alt="KSR Store home" width="160" height="40"></a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" aria-current="page">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart (<span class="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>All products</h1>
+    <p id="result-count" class="result-count">Loading products...</p>
+    <section id="product-grid" class="product-grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Need help? <a href="mailto:support@example.com">support@example.com</a></p>
+    <p><small>&copy; 2026 KSR Store · Hyderabad</small></p>
+  </footer>
+</body>
+</html>
